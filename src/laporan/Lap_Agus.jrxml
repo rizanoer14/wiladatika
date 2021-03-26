@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="09c7c72a-a53f-42d6-9cd0-915eeac8676e">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<queryString>
+		<![CDATA[SELECT
+     pemesanan.`kode_sewa` AS pemesanan_kode_sewa,
+     pemesanan.`waktu` AS pemesanan_waktu,
+     pemesanan.`nama_penyewa` AS pemesanan_nama_penyewa,
+     pemesanan.`notelp` AS pemesanan_notelp,
+     pemesanan.`tanggal` AS pemesanan_tanggal
+FROM
+     `pemesanan` pemesanan
+where kode_ruang='K004']]>
+	</queryString>
+	<field name="pemesanan_kode_sewa" class="java.lang.String"/>
+	<field name="pemesanan_tanggal" class="java.sql.Date"/>
+	<field name="pemesanan_waktu" class="java.lang.String"/>
+	<field name="pemesanan_nama_penyewa" class="java.lang.String"/>
+	<field name="pemesanan_notelp" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="94" splitType="Stretch">
+			<image>
+				<reportElement x="275" y="0" width="300" height="64" uuid="29448013-f57a-4e98-9acb-dbedc950020d"/>
+				<imageExpression><![CDATA["leaf_banner_green.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement style="SubTitle" x="100" y="46" width="174" height="22" uuid="f2982954-699d-432e-afc7-6a37cb3298e8"/>
+				<text><![CDATA[R.H. Agus Salim]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Title" x="0" y="13" width="263" height="33" uuid="c57ac30b-b579-4e1c-8948-43bf34360de0"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Laporan Penyewaan Ruang Diklat]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="36" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="35" width="555" height="1" uuid="67b73fdd-e804-49dd-acd6-988b1f347fa1"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement style="Column header" x="0" y="19" width="87" height="15" uuid="e1ce2a33-7fb8-4f77-a767-40be79aa3e29"/>
+				<text><![CDATA[Kode Sewa]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="87" y="19" width="135" height="15" uuid="bffbc65b-f567-4d8e-b63b-d5c6ed134e54"/>
+				<text><![CDATA[Tanggal]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="222" y="19" width="84" height="15" uuid="50847b57-3175-406e-895d-e774eca98ed0"/>
+				<text><![CDATA[Waktu]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="306" y="19" width="127" height="15" uuid="8254a7c9-e3e0-4351-a527-ecf73dda9eae"/>
+				<text><![CDATA[Nama Penyewa]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="433" y="19" width="122" height="15" uuid="f663b27b-23f9-4116-a70f-669b468f609d"/>
+				<text><![CDATA[No. Telpon]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="16" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="15" width="555" height="1" uuid="997946a0-b61a-453d-8ebc-975cfa890f86"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement style="Detail" x="0" y="0" width="87" height="15" uuid="1b1e915c-87de-4452-93e1-bb00b2828137"/>
+				<textFieldExpression><![CDATA[$F{pemesanan_kode_sewa}]]></textFieldExpression>
+			</textField>
+			<textField pattern="MM/dd/yyyy">
+				<reportElement style="Detail" x="87" y="0" width="135" height="15" uuid="99eab8ce-094e-4c3b-ba06-f9f517eb37dc"/>
+				<textFieldExpression><![CDATA[$F{pemesanan_tanggal}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="222" y="0" width="84" height="15" uuid="dcb4a29d-554d-42b4-bb72-9f64f2e9eb44"/>
+				<textFieldExpression><![CDATA[$F{pemesanan_waktu}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="306" y="0" width="127" height="15" uuid="f8877a6f-3c28-4eb8-b579-ff7bf45cf7b1"/>
+				<textFieldExpression><![CDATA[$F{pemesanan_nama_penyewa}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="433" y="0" width="122" height="15" uuid="e490af58-e5a5-4597-a530-9a79559d34d7"/>
+				<textFieldExpression><![CDATA[$F{pemesanan_notelp}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="102" splitType="Stretch">
+			<textField pattern="dd MMMMM yyyy">
+				<reportElement x="455" y="4" width="100" height="20" uuid="06b956c3-e293-456a-b04d-3e26672979a5"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="419" y="4" width="36" height="20" uuid="06ae9525-f450-489a-a3c6-b5bdb69a1f3a"/>
+				<text><![CDATA[Depok,]]></text>
+			</staticText>
+			<line>
+				<reportElement x="398" y="78" width="155" height="1" uuid="f35da198-fafb-47e4-b895-86b8d99e7961"/>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="21" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
